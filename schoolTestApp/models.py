@@ -13,7 +13,7 @@ class Theme(models.Model):
 
 
 class Question(models.Model):
-    theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
+    theme = models.ForeignKey(Theme, on_delete=models.CASCADE,related_name='foreign')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     text=models.TextField("Задача")
     image=models.ImageField(upload_to="question/",blank=True)

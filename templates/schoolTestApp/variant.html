@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{%block title%}Вариант № {{variant.number}}{%endblock%}
+
+{%block content%}
+    <form method="post" action="{% url 'variant' variant.id %}">{%csrf_token%}
+        <h3>Вариант № {{variant.number}}</h3>
+        <hr>
+        {%for q in list%}
+            <div class="mt-3">
+                {%if q.image%}
+                <img src="{{ q.image.url }}">
+                {%endif%}
+                <h5>Задание № {{q.id}}</h5>
+                <span>{{q.text|safe}}</span>
+                <input type="text" name="{{q.id}}" id="{{q.id}}" placeholder="Ответ">
+                <hr>
+            </div>
+        {%endfor%}
+    <button type="submit">Проверить</button>
+    </form>
+{%endblock%}

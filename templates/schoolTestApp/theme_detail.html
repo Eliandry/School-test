@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{%block title%}Задачи{%endblock%}
+{%block content%}
+<h4>{{theme.name}}</h4>
+    {%for i in theme.foreign.all%}
+        <h5>Задание № {{i.id}}</h5>
+        <span>{{i.text|safe}}</span>
+        <form>
+            <script>
+                $(document).ready(function(){
+                    $(".message_head").click(function(){
+                        $(this).next(".message_body").slideToggle(0)
+                        return false;
+                    });
+                });
+            </script>
+            <button class="message_head btn btn-outline-info" type="button" >Проверить</button>
+            <div class="message_body" style="display: none;">
+                <p>Ответ: {{i.answer}}</p>
+            </div>
+        </form>
+        <hr>
+    {%endfor%}
+{%endblock%}

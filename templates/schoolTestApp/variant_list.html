@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+{%block title%}Главная{%endblock%}
+
+{%block content%}
+    <h2>Варианты</h2>
+    <hr>
+    {%for variant in variant_list%}
+        <button type="button" class="btn btn-outline-warning">
+        <a href="{% url 'variant' variant.id %}" style="color:black">
+            <h5>Вариант № {{variant.number}}</h5>
+        </a>
+        </button>
+    {%endfor%}
+    <button type="button" class="btn btn-outline-warning">
+        <a href="/" style="color:black">
+            <h5>Вариант № 2</h5>
+        </a>
+    </button>
+
+    <h2 class="my-3">Задачи для доп. изучения</h2>
+    <hr>
+    {%for theme in theme_list%}
+        <p>
+        <button type="button" class="btn btn-outline-info">
+        <a href="{% url 'theme' theme.id %}" style="color:black">{{theme.name}}</a>
+        </button>
+        </p>
+    {%endfor%}
+{%endblock%}

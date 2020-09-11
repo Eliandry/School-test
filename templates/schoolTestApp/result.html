@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{%block title%}Результаты{%endblock%}
+{%block content%}
+<div class="row">
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">№</th>
+      <th scope="col">Статус</th>
+      <th scope="col">Ваш ответ</th>
+      <th scope="col">Правильный ответ</th>
+    </tr>
+  </thead>
+  </table>
+      <div class="col-1">
+          {%for i in len%}
+          <p>{{i}}</p>
+          <hr>
+          {%endfor%}
+      </div>
+      <div class="col-3">
+          {%for i in status%}
+          <p>{{i}}</p>
+          <hr>
+          {%endfor%}
+      </div>
+      <div class="col-3">
+          {%for i in u%}
+          <p>{{i}}</p>
+          <hr>
+          {%endfor%}
+        </div>
+      <div class="col-2">
+          {%for i in r%}
+              <p>{{i}}</p>
+          <hr>
+          {%endfor%}
+      </div>
+</div>
+{%endblock%}
